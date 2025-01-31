@@ -1,39 +1,35 @@
 # Shipments Delayed Prediction
 
-## Project Overview
+### Project Overview
 
-This project aims to predict the likelihood of shipment delays using a machine learning model based on historical shipment data. By using features such as shipment type, origin, destination, and more, the model determines the risk of delay for each shipment. The solution includes data preprocessing, model training, hyperparameter tuning, and evaluation using various machine learning algorithms like Random Forest, XGBoost, and LightGBM.
+This project aims to predict the likelihood of shipment delays using machine learning models based on historical shipment data. By leveraging features such as shipment type, origin, destination, and geospatial data, the model determines the risk of delay for each shipment. The solution includes data preprocessing, model training, hyperparameter tuning, and evaluation using multiple machine learning algorithms.
 
-## Dataset
+### Dataset
 
 The dataset consists of historical shipment data with the following important features:
 
 - Shipment Details: Shipment type, origin, destination, pickup/drop-off latitude/longitude.
 - Target Variable: is_delayed (1 = delayed, 0 = on-time).
 
-## Project Steps
+### Project Steps
 
 1. Data Preprocessing: Includes handling missing values, feature scaling, and encoding categorical variables.
 2. Multiple Models Evaluated: Logistic Regression, Decision Tree, Random Forest, XGBoost, LightGBM, and SVM.
-3. Hyperparameter Tuning: Utilizes RandomizedSearchCV and GridSearchCV for finding the best hyperparameters.
-4. SMOTE: Balances the dataset by oversampling minority classes.
+3. Hyperparameter Tuning: Use GridSearchCV for finding the best hyperparameters.
+4. SMOTE: Use SMOTE (Synthetic Minority Over-sampling Technique) to balance the dataset.
 5. Model Performance Evaluation: Evaluates models using metrics like accuracy, ROC-AUC, precision, recall, and F1-score.
 
-## Key Results
+### Key Results
 
-Model Performance
+- Best Model: RandomForestClassifier
+- Accuracy: 99.84%
+- AUC-ROC: 99.98%
 
-- From the output, it is evident that the models, particularly RandomForest and XGBoost, are performing exceptionally well with extremely high accuracy and ROC-AUC scores.
+### Key Findings
 
-Classification Report
-
-- The classification report shows that the model is performing near perfectly on both the majority class (on-time shipments) and the minority class (delayed shipments). This is an important achievement considering class imbalance is often an issue in shipment delay prediction.
-Risk of Overfitting
-
-- Given the training accuracy of 1.0, there is a potential risk of overfitting, especially since the test accuracy is also extremely high. However, based on the high test performance, it seems the model is generalizing well. Cross-validation was used to ensure the robustness of the model, which helps mitigate the risk of overfitting.
-Use of SMOTE
-
-- SMOTE (Synthetic Minority Over-sampling Technique) was applied to balance the dataset. This is a crucial step as it helps improve the performance of the model on the minority class (is_delayed = 1).
+- The RandomForestClassifier achieved exceptionally high accuracy and ROC-AUC scores, performing well on both majority and minority classes.
+- Cross-validation was applied to ensure robustness and reduce overfitting risk.
+- SMOTE effectively improved model performance on the minority class (delayed shipments).
 
 ### Potential Improvements
 
@@ -47,4 +43,4 @@ Use of SMOTE
 
 ### Source
 
-https://www.kaggle.com/datasets/omnamahshivai/dataset-delayed-shipments-outd-avt2-t3-sep052019
+Dataset: [Delayed Shipment Dataset on Kaggle](https://www.kaggle.com/datasets/omnamahshivai/dataset-delayed-shipments-outd-avt2-t3-sep052019)
